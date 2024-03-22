@@ -1,0 +1,117 @@
+* { /* universal */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Calibri';
+}
+
+body {
+    height: 100%;
+}
+
+header {
+  display: flex;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  padding: 10px;
+}
+
+.head {
+  padding: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-left: 20px;
+  border: 1px solid;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+footer {
+  padding: 10px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  text-align: center;
+}
+
+main {
+    min-height: 630px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    border: 0px solid;
+    width: 20%;
+    margin: 5px;
+    border: solid 1px;
+    padding: 5px;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    border: 0px solid;
+    width: 20%;
+    margin: 5px;
+    border: solid 1px;
+    padding: 5px;
+}
+
+.center {
+    display: flex;
+    flex-wrap: wrap; 
+    border: 0px solid;
+    width: 60%;
+    margin: 5px;
+    align-items: flex-start; 
+    border: solid 1px;   
+    padding: 5px;
+}
+
+.card {
+    display: flex;
+    border: 1px solid;
+    margin-bottom: 5px;
+    min-height: 200px;
+        border-radius: 5px; 
+        padding-left: 10px;
+        padding-top: 10px;
+}
+
+.produk {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 25%;
+}
+
+@media screen and (max-width: 1000px) {
+  main {
+    flex-direction: column;
+}
+
+.left,
+.center,
+.right,
+.produk {
+    width: 100%;
+    min-height: 10px;
+    flex-direction: column;
+}
+.right {
+  order: 1;
+}
+
+.left {
+  order: 0;
+}
+
+.center {
+  order: 2;
+}
+
+}
