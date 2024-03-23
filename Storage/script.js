@@ -118,9 +118,8 @@ function updateChart() {
 
 // Menampilkan total harga keseluruhan
   const totalElement = document.getElementById('total');
-  totalElement.innerHTML = `<i class="fas fa-th-list"></i> Total: Rp. ${totalPrice.toLocaleString()}`;
+  totalElement.innerHTML = `<i class="fas fa-list"></i> Total: Rp. ${totalPrice.toLocaleString()}`;
 }
 
 // Memanggil fungsi updateChart saat halaman dimuat
 updateChart();
-

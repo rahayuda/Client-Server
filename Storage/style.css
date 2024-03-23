@@ -145,7 +145,6 @@ main {
   min-height: 200px;
   border-radius: 5px; 
   padding: 10px;
-  padding-top: 10px;
   background-color: #DCF2F1;
   color: #0F1035;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -199,6 +198,30 @@ button {
   color: #DCF2F1;
   cursor: pointer;
   font-size: 16px;
+}
+
+.card li {
+  margin-left: 20px;
+}
+
+.card ul {
+ padding: 10px;
+}
+
+#chart {
+ border: 1px solid #7FC7D9;
+ min-height: 100px; 
+ padding: 10px;
+ background-color: #DCF2F1;
+ color: #0F1035;
+}
+
+#total {
+  margin-top: 5px;
+ border: 1px solid #7FC7D9;
+ padding: 10px;
+ background-color: #DCF2F1;
+ color: #0F1035;
 }
 
 .delete {
