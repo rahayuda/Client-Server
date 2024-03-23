@@ -1,17 +1,17 @@
 // Data produk
 const products = [
-  { name: "Laptop", category: "Electronics", stock: 10, price: 5000000, image: "image/product.png" },
-  { name: "Pencil", category: "Stationery", stock: 50, price: 5000, image: "image/product.png" },
-  { name: "Mouse", category: "Electronics", stock: 20, price: 200000, image: "image/product.png" },
-  { name: "Book", category: "Stationery", stock: 30, price: 25000, image: "image/product.png" },
-  { name: "Soda Drink", category: "Beverage", stock: 15, price: 15000, image: "image/product.png" },
-  { name: "Printer", category: "Electronics", stock: 5, price: 1000000, image: "image/product.png" },
-  { name: "Camera", category: "Electronics", stock: 8, price: 3000000, image: "image/product.png" },
-  { name: "Pen", category: "Stationery", stock: 40, price: 2000, image: "image/product.png" },
-  { name: "Speaker", category: "Electronics", stock: 12, price: 150000, image: "image/product.png" },
-  { name: "Notebook", category: "Stationery", stock: 25, price: 10000, image: "image/product.png" },
-  { name: "Mineral Water", category: "Beverage", stock: 20, price: 5000, image: "image/product.png" },
-  { name: "Smartphone", category: "Electronics", stock: 15, price: 2000000, image: "image/product.png" }
+  { id: 1, name: "Laptop", category: "Electronics", stock: 10, price: 5000000, image: "image/product.png" },
+  { id: 2, name: "Pencil", category: "Stationery", stock: 50, price: 5000, image: "image/product.png" },
+  { id: 3, name: "Mouse", category: "Electronics", stock: 20, price: 200000, image: "image/product.png" },
+  { id: 4, name: "Book", category: "Stationery", stock: 30, price: 25000, image: "image/product.png" },
+  { id: 5, name: "Soda Drink", category: "Beverage", stock: 15, price: 15000, image: "image/product.png" },
+  { id: 6, name: "Printer", category: "Electronics", stock: 5, price: 1000000, image: "image/product.png" },
+  { id: 7, name: "Camera", category: "Electronics", stock: 8, price: 3000000, image: "image/product.png" },
+  { id: 8, name: "Pen", category: "Stationery", stock: 40, price: 2000, image: "image/product.png" },
+  { id: 9, name: "Speaker", category: "Electronics", stock: 12, price: 150000, image: "image/product.png" },
+  { id: 10, name: "Notebook", category: "Stationery", stock: 25, price: 10000, image: "image/product.png" },
+  { id: 11, name: "Mineral Water", category: "Beverage", stock: 20, price: 5000, image: "image/product.png" },
+  { id: 12, name: "Smartphone", category: "Electronics", stock: 15, price: 2000000, image: "image/product.png" }
 ];
 
 // Fungsi untuk membuat elemen produk
@@ -30,7 +30,7 @@ function createProductElement(product) {
       <p>
         <form>
           <input type="number">
-          <button>Beli</button>
+          <button class="buy">Beli</button>
         </form>
       </p>
     </div>
@@ -45,17 +45,34 @@ products.forEach(product => {
   productContainer.appendChild(productElement);
 });
 
+// Menambahkan event listener untuk tombol "Beli" pada setiap produk
+document.querySelectorAll('.produk .buy').forEach((button, index) => {
+  button.addEventListener('click', () => {
+    const productId = products[index].id;
+    const quantity = parseInt(button.parentNode.querySelector('input').value);
+    if (!isNaN(quantity) && quantity > 0 && quantity <= products[index].stock) {
+      handlePurchase(productId, quantity);
+    } else {
+      alert('Invalid quantity or out of stock.');
+    }
+  });
+});
+
+
 // Fungsi untuk menangani pembelian produk
-function handlePurchase(productName, quantity) {
+function handlePurchase(productId, quantity) {
   // Mengurangi stok produk
-  const productIndex = products.findIndex(product => product.name === productName);
+  const productIndex = products.findIndex(product => product.id === productId);
   if (productIndex !== -1) {
+    const productName = products[productIndex].name;
     products[productIndex].stock -= quantity;
 
     // Menyimpan pembelian ke dalam localStorage
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     const purchase = {
-      product: productName,
+      id: Date.now(), // Menggunakan timestamp sebagai id unik
+      productId: productId,
+      productName: productName,
       quantity: quantity,
       price: products[productIndex].price * quantity
     };
@@ -65,6 +82,14 @@ function handlePurchase(productName, quantity) {
     // Memperbarui tampilan chart
     updateChart();
   }
+}
+
+// Fungsi untuk menghapus produk dari keranjang belanja berdasarkan id pembelian
+function handleDelete(purchaseId) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart = cart.filter(item => item.id !== purchaseId);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateChart();
 }
 
 // Fungsi untuk memperbarui tampilan chart
@@ -79,28 +104,23 @@ function updateChart() {
   chartElement.innerHTML = '';
   cart.forEach(item => {
     const itemElement = document.createElement('div');
-    itemElement.innerHTML = `<i class="fas fa-list"></i> ${item.product}, ${item.quantity} pcs, Rp. ${item.price.toLocaleString()}`;
+    itemElement.innerHTML = `<i class="fas fa-list"></i> ${item.productName}, ${item.quantity} pcs, Rp. ${item.price.toLocaleString()}, <span class="delete" data-id="${item.id}">Delete</span>`;
     chartElement.appendChild(itemElement);
   });
 
-  // Menampilkan total harga keseluruhan
+  // Menambahkan event listener untuk tombol "Delete" pada setiap item dalam keranjang belanja
+  document.querySelectorAll('.delete').forEach(button => {
+    button.addEventListener('click', () => {
+      const purchaseId = parseInt(button.getAttribute('data-id'));
+      handleDelete(purchaseId);
+    });
+  });
+
+// Menampilkan total harga keseluruhan
   const totalElement = document.getElementById('total');
   totalElement.innerHTML = `<i class="fas fa-th-list"></i> Total: Rp. ${totalPrice.toLocaleString()}`;
 }
 
-
-// Menambahkan event listener untuk tombol "Beli" pada setiap produk
-document.querySelectorAll('.produk button').forEach((button, index) => {
-  button.addEventListener('click', () => {
-    const productName = products[index].name;
-    const quantity = parseInt(button.parentNode.querySelector('input').value);
-    if (!isNaN(quantity) && quantity > 0 && quantity <= products[index].stock) {
-      handlePurchase(productName, quantity);
-    } else {
-      alert('Invalid quantity or out of stock.');
-    }
-  });
-});
-
 // Memanggil fungsi updateChart saat halaman dimuat
 updateChart();
+
