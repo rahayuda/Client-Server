@@ -49,24 +49,27 @@
           <div id="total"></div> 
         </div>
         <div class="card"><i class="fas fa-th-list"></i>&nbsp;Etalase<hr>
-        <ul><i class="fas fa-list"></i>&nbsp;Electonics
-          <li>Laptop</li>
-          <li>Mouse</li>
-          <li>Printer</li>
-          <li>Camera</li>
-          <li>Speaker</li>
-          <li>Smartphone</li>
-        </ul>
-        <ul><i class="fas fa-list"></i>&nbsp;Stationery
-          <li>Pencil</li>
-          <li>Book</li>
-          <li>Pen</li>
-          <li>Notebook</li>
-        </ul>
-        <ul><i class="fas fa-list"></i>&nbsp;Beverage
-          <li>Soda Drink</li>
-          <li>Mineral Water</li>
-        </ul>         
+          <ul onclick="toggleDropdown1()"><i class="fas fa-list"></i>&nbsp;Electonics</ul>
+            <div id="myDropdown1" class="dropdown-content">
+              <li><a href="google.com">Laptop</a></li>
+              <li>Mouse</li>
+              <li>Printer</li>
+              <li>Camera</li>
+              <li>Speaker</li>
+              <li>Smartphone</li>
+            </div>
+          <ul onclick="toggleDropdown2()"><i class="fas fa-list"></i>&nbsp;Stationery</ul>
+            <div id="myDropdown2" class="dropdown-content">
+              <li>Pencil</li>
+              <li>Book</li>
+              <li>Pen</li>
+              <li>Notebook</li>
+            </div>
+          <ul onclick="toggleDropdown3()"><i class="fas fa-list"></i>&nbsp;Beverage</ul>
+            <div id="myDropdown3" class="dropdown-content">
+              <li>Soda Drink</li>
+              <li>Mineral Water</li>
+            </div>
         </div>
       </div>
 

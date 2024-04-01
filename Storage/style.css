@@ -150,10 +150,18 @@ main {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.produk {
+.product {
   padding-left: 5px;
   padding-right: 5px;
-  width: 20%;
+  width: 25%;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.product.hover {
+  transform: scale(1.05);
+  z-index: 1;
 }
 
 .profile-img {
@@ -201,11 +209,14 @@ button {
 }
 
 .card li {
-  margin-left: 20px;
+  margin-left: 5px;
 }
 
 .card ul {
- padding: 10px;
+ padding: 5px;
+ padding-bottom: 5px; 
+ cursor: pointer;
+
 }
 
 #chart {
@@ -218,10 +229,10 @@ button {
 
 #total {
   margin-top: 5px;
- border: 1px solid #7FC7D9;
- padding: 10px;
- background-color: #DCF2F1;
- color: #0F1035;
+  border: 1px solid #7FC7D9;
+  padding: 10px;
+  background-color: #DCF2F1;
+  color: #0F1035;
 }
 
 .delete {
@@ -233,6 +244,28 @@ button {
  color: white;
 }
 
+/* Style the dropdown button */
+.dropbtn {
+  background-color: #3498db;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+}
+
+.dropdown-content a {
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
 
 @media screen and (max-width: 1000px) {
   main {
@@ -242,7 +275,7 @@ button {
   .left,
   .center,
   .right,
-  .produk {
+  .product {
     width: 100%;
     min-height: 10px;
     flex-direction: column;
