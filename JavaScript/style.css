@@ -115,6 +115,7 @@ main {
   border: solid 1px #DCF2F1;
   padding: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  animation: slideRight 2s ease forwards;
 }
 
 .right {
@@ -125,6 +126,7 @@ main {
   border: solid 1px #DCF2F1;
   padding: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  animation: slideLeft 2s ease forwards;
 }
 
 .center {
@@ -133,6 +135,7 @@ main {
   width: 60%;
   margin: 5px;
   align-items: flex-start; 
+  vertical-align: top;
   border: solid 1px #DCF2F1;   
   padding: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -144,16 +147,23 @@ main {
   min-height: 200px;
   border-radius: 5px; 
   padding: 10px;
-  padding-top: 10px;
   background-color: #DCF2F1;
   color: #0F1035;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.produk {
+.product {
   padding-left: 5px;
   padding-right: 5px;
-  width: 20%;
+  width: 25%;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.product.hover {
+  transform: scale(1.05);
+  z-index: 1;
 }
 
 .profile-img {
@@ -200,6 +210,65 @@ button {
   font-size: 16px;
 }
 
+.card li {
+  margin-left: 5px;
+}
+
+.card ul {
+ padding: 5px;
+ padding-bottom: 5px; 
+ cursor: pointer;
+
+}
+
+#chart {
+ border: 1px solid #7FC7D9;
+ min-height: 100px; 
+ padding: 10px;
+ background-color: #DCF2F1;
+ color: #0F1035;
+}
+
+#total {
+  margin-top: 5px;
+  border: 1px solid #7FC7D9;
+  padding: 10px;
+  background-color: #DCF2F1;
+  color: #0F1035;
+}
+
+.delete {
+  border: none; 
+  cursor: pointer; 
+}
+
+.delete:hover {
+ color: white;
+}
+
+/* Style the dropdown button */
+.dropbtn {
+  background-color: #3498db;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+}
+
+.dropdown-content a {
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+
 @media screen and (max-width: 1000px) {
   main {
     flex-direction: column;
@@ -208,7 +277,7 @@ button {
   .left,
   .center,
   .right,
-  .produk {
+  .product {
     width: 100%;
     min-height: 10px;
     flex-direction: column;
@@ -225,4 +294,26 @@ button {
     order: 2;
   }
 
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
