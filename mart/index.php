@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Mart</title>
+  <link rel="stylesheet" href="style.css">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+  />
+</head>
+
+<body>
+
+  <header>
+    <div class="head">Login</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</li>
+          <li id="dropdown">
+            <a href="#">Menu</a>
+            <ul id="menu">
+              <li><a href="index.php?page=product"><i class="fas fa-th-list"></i>&nbsp;Product</a></li>
+              <li><a href="index.php?page=purcase"><i class="fas fa-th-list"></i>&nbsp;Purcase</a></li>
+            </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+    <main>
+      <div class="left">
+        <div class="card">
+          <i class="fas fa-th-list"></i>&nbsp;Profile<hr>
+          <table>
+            <tr>
+              <th><img src="image/profile.png" class="profile-img"></th>
+              <td>
+                <p>Username: </p>
+                <p>Role: </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="card"><i class="fas fa-th-list"></i>&nbsp;Cart<hr>
+          <div id="cartline"><?php include "cart.php"; ?></div>
+          <hr>
+          <button type="submit" name="buy">Purcase</button>
+        </div>
+        <div class="card"><i class="fas fa-th-list"></i>&nbsp;Etalase<hr>
+          <ul onclick="toggleDropdown1()"><i class="fas fa-list"></i>&nbsp;Electonics</ul>
+          <div id="myDropdown1" class="dropdown-content">
+            <li><a href="google.com">Laptop</a></li>
+            <li>Mouse</li>
+            <li>Printer</li>
+            <li>Camera</li>
+            <li>Speaker</li>
+            <li>Smartphone</li>
+          </div>
+          <ul onclick="toggleDropdown2()"><i class="fas fa-list"></i>&nbsp;Stationery</ul>
+          <div id="myDropdown2" class="dropdown-content">
+            <li>Pencil</li>
+            <li>Book</li>
+            <li>Pen</li>
+            <li>Notebook</li>
+          </div>
+          <ul onclick="toggleDropdown3()"><i class="fas fa-list"></i>&nbsp;Beverage</ul>
+          <div id="myDropdown3" class="dropdown-content">
+            <li>Soda Drink</li>
+            <li>Mineral Water</li>
+          </div>
+        </div>
+      </div>
+
+      <div class="center" id="product-container"> 
+        <?php
+        include "sql_connection.php"; 
+        $page = isset($_GET['page']) ? $_GET['page'] : 'product';
+
+        switch ($page) {
+          case 'cart':
+            include('cart.php'); 
+            break;
+          case 'buy':
+            include('buy.php'); 
+            break;
+          default:
+            include('product.php'); 
+            break;
+        }
+        ?> 
+      </div>
+
+      <div class="right">
+        <div class="card">
+          <i class="fas fa-th-list"></i>&nbsp;Best Product<hr>
+          <img src="image/product.png" class="product-img">
+          <p>
+            Category | Stock <br>
+            Harga
+          </p>
+          <hr>
+          <p>
+            <form>
+              <input type="number">
+              <button>Beli</button>
+            </form>
+          </p>
+        </div>
+        <div class="card">
+          <i class="fas fa-th-list"></i>&nbsp;Sales<hr>
+        </div>
+
+    </main>
+
+  <footer>
+    <p>&#169; 2024</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
