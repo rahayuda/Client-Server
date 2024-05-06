@@ -30,3 +30,17 @@ CREATE TABLE `product` (
   `image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
+
+INSERT INTO `product` (`id`, `name`, `category`, `stock`, `price`, `image`) VALUES
+(1, 'Laptop', 'Electronics', 10, 5000000.00, 'image/product.png'),
+(2, 'Pencil', 'Stationery', 50, 5000.00, 'image/product.png'),
+(3, 'Mouse', 'Electronics', 20, 200000.00, 'image/product.png'),
+(4, 'Book', 'Stationery', 30, 25000.00, 'image/product.png'),
+(5, 'Soda Drink', 'Beverage', 15, 15000.00, 'image/product.png'),
+(6, 'Printer', 'Electronics', 5, 1000000.00, 'image/product.png'),
+(7, 'Camera', 'Electronics', 8, 3000000.00, 'image/product.png'),
+(8, 'Pen', 'Stationery', 40, 2000.00, 'image/product.png'),
+(9, 'Speaker', 'Electronics', 12, 150000.00, 'image/product.png'),
+(10, 'Notebook', 'Stationery', 25, 10000.00, 'image/product.png'),
+(11, 'Mineral Water', 'Beverage', 20, 5000.00, 'image/product.png'),
+(12, 'Smartphone', 'Electronics', 15, 2000000.00, 'image/product.png');
