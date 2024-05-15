@@ -1,0 +1,12 @@
+your_project/
+│
+├── app.py
+├── templates/
+│   ├── index.html
+│   ├── insert.html
+│   ├── update.html
+│   ├── delete.html
+├── static/
+│   ├── styles.css
+│   ├── script.js
+└── requirements.txt
