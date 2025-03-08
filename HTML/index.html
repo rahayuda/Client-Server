@@ -1,54 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
+    <!-- Meta SEO -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contoh Halaman</title>
+    <meta name="description" content="Panduan lengkap belajar HTML untuk SEO, mencakup meta tag, heading, dan schema markup.">
+    <meta name="keywords" content="HTML, SEO, meta tag, optimasi website, Google ranking">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Nama Anda">
+    <link rel="canonical" href="https://contoh.com/">
+    <title>Belajar HTML untuk SEO - Panduan Lengkap</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Open Graph & Twitter Card -->
+    <meta property="og:title" content="Belajar HTML untuk SEO - Panduan Lengkap">
+    <meta property="og:description" content="Panduan lengkap belajar HTML untuk SEO.">
+    <meta property="og:image" content="https://i.pinimg.com/736x/8e/0c/8d/8e0c8d63e0b439d4c3c754d8e6fddcf8.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- CSS File -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- JavaScript Async & Defer -->
+    <script defer src="script.js"></script>
 </head>
 <body>
-
-    <nav>
-        <ul>
-            <li><a href="#">Beranda</a></li>
-            <li><a href="#">Tentang</a></li>
-            <li><a href="#">Kontak</a></li>
-        </ul>
-    </nav>
-
-    <h1>Formulir Kontak</h1>
-
-    <form action="#" method="POST">
-        <label for="nama">Nama:</label>
-        <input type="text" id="nama" name="nama"><br><br>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email"><br><br>
-
-        <label for="pesan">Pesan:</label><br>
-        <textarea id="pesan" name="pesan" rows="4" cols="50"></textarea><br><br>
-
-        <input type="submit" value="Kirim">
-    </form>
-
-    <h2>Data Pengguna</h2>
-
-    <table border="1">
-        <tr>
-            <th>Nama</th>
-            <th>Email</th>
-            <th>Pesan</th>
-        </tr>
-        <tr>
-            <td>John Doe</td>
-            <td>john@example.com</td>
-            <td>Lorem ipsum dolor sit amet</td>
-        </tr>
-        <tr>
-            <td>Jane Smith</td>
-            <td>jane@example.com</td>
-            <td>Consectetur adipiscing elit</td>
-        </tr>
-    </table>
+    <header>
+        <h1>Belajar HTML untuk SEO</h1>
+        <nav>
+            <ul>
+                <li><a href="#pengertian">Pengertian SEO</a></li>
+                <li><a href="#elemen">Elemen SEO</a></li>
+                <li><a href="#gambar">Optimasi Gambar</a></li>
+            </ul>
+        </nav>
+        <hr>
+    </header>
+    
+    <main>
+        <section id="pengertian">
+            <h2>Apa Itu SEO?</h2>
+            <p><strong>Search Engine Optimization (SEO)</strong> adalah teknik mengoptimalkan halaman web agar mudah ditemukan oleh mesin pencari.</p>
+        </section>
+        
+        <section id="elemen">
+            <h2>Elemen Penting dalam SEO</h2>
+            <table border="1">
+                <tr>
+                    <th>Elemen</th>
+                    <th>Fungsi</th>
+                </tr>
+                <tr>
+                    <td>Title & Meta Description</td>
+                    <td>Meningkatkan klik di hasil pencarian</td>
+                </tr>
+                <tr>
+                    <td>Heading Tags (H1 - H6)</td>
+                    <td>Menstrukturkan konten</td>
+                </tr>
+                <tr>
+                    <td>Alt Text pada Gambar</td>
+                    <td>Meningkatkan aksesibilitas</td>
+                </tr>
+            </table>
+        </section>
+        
+        <section id="gambar">
+            <h2>Optimasi Gambar untuk SEO</h2>
+            <picture>
+                <source srcset="https://i.pinimg.com/originals/d4/8b/c5/d48bc5e6ec16d1af575634d8ef68b720.gif" media="(max-width: 600px)">
+                <img src="https://i.pinimg.com/originals/d4/8b/c5/d48bc5e6ec16d1af575634d8ef68b720.gif" alt="Optimasi Gambar SEO">
+            </picture>
+        </section>
+        
+        <section>
+            <h2>Formulir Interaktif</h2>
+            <form>
+                <label for="nama">Nama:</label>
+                <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+                <button type="submit">Kirim</button>
+            </form>
+        </section>
+        
+        <section>
+            <h2>Elemen Interaktif</h2>
+            <details>
+                <summary>Klik untuk melihat lebih banyak</summary>
+                <p>Ini adalah konten tersembunyi.</p>
+            </details>
+            <br>
+            <dialog id="myDialog">
+                <p>Ini adalah kotak dialog</p>
+                <button onclick="document.getElementById('myDialog').close()">Tutup</button>
+            </dialog>
+            <button onclick="document.getElementById('myDialog').showModal()">Buka Dialog</button>
+           
+        </section>
+    </main>
+  
+    <br>
+  
+    <footer>
+        <hr>
+        <p>&copy; 2025 Nama Anda. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
