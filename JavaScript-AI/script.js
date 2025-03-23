@@ -1,4 +1,4 @@
-const apiKey = "Bearer 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"; // Ganti dengan API Key Hugging Face
+const apiKey = "api key"; // Ganti dengan API Key Hugging Face
 
 async function fetchAI(model, inputData) {
     const response = await fetch(`https://api-inference.huggingface.co/models/${model}`, {
