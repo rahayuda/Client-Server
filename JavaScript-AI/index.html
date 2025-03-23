@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript AI</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" type="module" defer></script>
+</head>
+<body>
+  <header>
+    <div class="head">AI</div>
+</header>
+
+<main>
+
+    <div class="left">
+
+        <!-- Ringkasan Teks -->
+        <div class="produk">
+            <div class="card">
+                <i class="fas fa-th-list"></i>&nbsp;<b>Ringkasan Teks</b><hr>
+                <div class="card-body">
+                    <textarea id="textInput" placeholder="Masukkan teks yang ingin diringkas..."></textarea>
+                    <p id="summaryResult" ></p>
+                </div>
+                <hr>                
+                <button onclick="summarizeText()">Generate</button>                
+            </div>
+        </div>
+
+        <!-- Chatbot -->
+        <div class="produk">
+            <div class="card">
+                <i class="fas fa-th-list"></i>&nbsp;<b>Chatbot AI</b><hr>
+                <div class="card-body">
+                    <input id="chatInput" type="text" placeholder="Tanyakan sesuatu ke AI...">
+                    <p id="chatResult" ></p>
+                </div>
+                <hr>
+                <button onclick="chatWithAI()">Generate</button>                
+            </div>
+        </div>
+
+        <!-- Pengenalan Gambar -->
+        <div class="produk">
+            <div class="card">
+                <i class="fas fa-th-list"></i>&nbsp;<b>Pengenalan Gambar</b><hr>
+                <div class="card-body">
+                    <input type="file" id="imageInput" accept="image/*">
+                    <img id="previewImage">
+                    <br>
+                    <p id="imageResult" ></p>
+                </div>
+                <hr>
+                <button onclick="classifyImage()">Generate</button>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="right">
+
+     <!-- Speech-to-Text -->
+     <div class="produk">
+        <div class="card">
+            <i class="fas fa-th-list"></i>&nbsp;<b>Speech to Text</b><hr>
+            <div class="card-body">
+                <input type="file" id="audioInput" accept="audio/*">
+                <p id="speechResult" ></p>
+            </div>
+            <hr>
+            <button onclick="convertSpeechToText()">Generate</button>
+        </div>
+    </div>
+
+    <!-- Deteksi Sentimen -->
+    <div class="produk">
+        <div class="card">
+            <i class="fas fa-th-list"></i>&nbsp;<b>Deteksi Sentimen</b><hr>
+            <div class="card-body">
+                <input id="sentimentInput" type="text" placeholder="Masukkan teks...">
+                <p id="sentimentResult" ></p>
+            </div>
+            <hr>
+            <button onclick="detectSentiment()">Generate</button>
+        </div>
+    </div>
+
+    <!-- Pembuatan Gambar dari Teks -->
+    <div class="produk">
+        <div class="card">
+            <i class="fas fa-th-list"></i>&nbsp;<b>Pembuatan Gambar dari Teks</b><hr>
+            <div class="card-body">
+                <input id="imagePrompt" type="text" placeholder="Deskripsikan gambar...">
+                <img id="generatedImage">
+                <p id="imageGenResult" ></p>
+            </div>
+            <hr>
+            <button onclick="generateImage()">Generate</button>
+        </div>
+    </div>
+
+</div>
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
