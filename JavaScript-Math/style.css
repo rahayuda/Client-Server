@@ -1,0 +1,124 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Calibri';
+}
+
+body {
+  background-color: #DCF2F1;
+}
+
+hr {
+  margin: 10px 0 5px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  padding: 10px;
+  background-color: #0F1035;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.head {
+  padding: 5px 20px;
+  margin-left: 25px;
+  border: 1px solid;
+  font-weight: bold;
+  font-size: 20px;
+  color: #7FC7D9;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+  min-height: 630px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 10px;
+}
+
+.card {
+  border: 1px solid #7FC7D9;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #DCF2F1;
+  color: #0F1035;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  align-items: flex-start;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Rata kiri */
+  gap: 10px;
+}
+
+.card-body div {
+  display: flex;
+  justify-content: flex-start; /* Rata kiri */
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.card-body img, .card-body canvas {
+  max-width: 350px;
+  height: auto;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  padding: 5px 10px;
+  border: 1px solid #7FC7D9;
+  background-color: #DCF2F1;
+  outline: none;
+  border-radius: 3px;
+  font-size: 16px;
+  width: 100%;
+}
+
+input[type="file"]::file-selector-button {
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 1px solid #0F1035;
+  background-color: #0F1035;
+  color: #DCF2F1;
+  cursor: pointer;
+  font-family: 'Calibri';
+}
+
+button {
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #0F1035;
+  background-color: #0F1035;
+  color: #DCF2F1;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 1000px) {
+  main {
+    flex-direction: column;
+  }
+
+  .center {
+    width: 100%;
+  }
+}
