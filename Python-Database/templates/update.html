@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Update</h1>
+    <form method="post">
+    <table>
+      <tr>
+        <td><label for="name">Name:</label></td>
+        <td><input type="text" id="name" name="name" value="{{ result['name'] }}"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><input type="submit" value="Submit"></td>
+      </tr>
+    </table> 
+    </form>
+</body>
+</html>
