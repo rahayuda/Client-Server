@@ -1,0 +1,148 @@
+* {
+  /* universal */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Calibri';
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid #7FC7D9;
+}
+
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.head {
+  z-index: 10;
+  padding: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  color:  #0F1035;
+}
+
+.head.active {
+  color: #7FC7D9;
+}
+
+main {
+  min-height: 630px;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.case {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 5px;
+  border: solid 1px #DCF2F1;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card {
+  border: 1px solid #7FC7D9;
+  margin-bottom: 5px;
+  min-height: 150px;
+  border-radius: 5px;
+  padding: 10px;
+  color: #0F1035;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+.card-body {
+  min-height: 500px;
+}
+
+.sidebar {
+  width: 250px;
+  height: 98.5vh;
+  background-color: #080A20;
+  color: #7FC7D9;
+  position: fixed;
+  top: 0;
+  left: -270px;
+  transition: left 0.3s ease;
+  padding: 20px;
+  padding-top: 50px;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar-list {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #7FC7D9;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 5px 10px;
+  background-color: #DCF2F1;
+  transition: left 0.3s ease;
+  color: #0F1035;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.toggle-btn.active {
+  background-color: #080A20;
+  color: #7FC7D9;
+}
+
+button {
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  border: 1px solid #0F1035;
+  background-color: #0F1035;
+  color: #DCF2F1;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 1000px) {
+  main {
+    flex-direction: column;
+  }
+
+  .case {
+    width: 100%;
+    flex-direction: column;
+  }
+}

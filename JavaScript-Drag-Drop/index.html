@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Drag and Drop</title>
+  <style>
+    * {
+      /* universal */
+      font-family: 'Calibri';
+    }
+    .drop-area {
+      width: 300px;
+      height: 200px;
+      border: 2px dashed #007bff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #007bff;
+      margin: 50px auto;
+      transition: background-color 0.3s ease;
+    }
+
+    .drop-area.hover {
+      background-color: #f0f8ff;
+    }
+
+    .file-list {
+      margin-top: 20px;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .file-list li {
+      padding: 8px;
+      background: #e1f5fe;
+      margin-bottom: 5px;
+      border-radius: 5px;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="drop-area" id="drop-area" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)">
+    Drag and drop to upload
+  </div>
+
+  <ul class="file-list" id="file-list"></ul>
+
+  <script>
+    const dropArea = document.getElementById('drop-area');
+    const fileList = document.getElementById('file-list');
+
+    function handleDragOver(event) {
+      event.preventDefault(); // Agar elemen bisa di-drop
+      dropArea.classList.add('hover'); // Mengubah style saat drag over
+    }
+
+    function handleDragLeave(event) {
+      dropArea.classList.remove('hover'); // Mengembalikan style setelah drag keluar
+    }
+
+    function handleDrop(event) {
+      event.preventDefault();
+      dropArea.classList.remove('hover'); // Mengembalikan style saat drop
+
+      const files = event.dataTransfer.files;
+      handleFileUpload(files);
+    }
+
+    function handleFileUpload(files) {
+      const fileArray = Array.from(files);
+      fileArray.forEach(file => {
+        const li = document.createElement('li');
+        li.textContent = file.name;
+        fileList.appendChild(li);
+      });
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Realtime Chart</title>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+  <header>
+    <div class="head"><i class="fas fa-th-list"></i>&nbsp;Realtime Chart</div>
+  </header>
+
+  <main>
+
+    <div class="case">
+
+      <div class="softcase">
+        <div class="card">
+          <b>Akselerometer</b><hr>
+          <div class="card-body">
+            <canvas id="sensorChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="softcase">
+        <div class="card">
+          <b>Akselerometer Bubble</b><hr>
+          <div class="card-body">
+            <canvas id="bubbleChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+    </div>    
+
+  </main>
+
+  <script type="module" src="script.js"></script>
+
+</body>
+</html>

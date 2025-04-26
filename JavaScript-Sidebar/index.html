@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sidebar</title>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <div class="head" id="headBtn"><button class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">
+      <i class="fas fa-th-list"></i></button>Sidebar
+    </div>
+  </header>
+
+  <div class="sidebar" id="sidebar">
+    <hr>
+    <div class="sidebar-list">
+      <i class="fas fa-th-list"></i>
+      &nbsp;<a href="https://auto-preprocessing.vercel.app/" target="blank">Preprocessing</a>
+    </div>
+    <div class="sidebar-list">
+      <i class="fas fa-th-list"></i>
+      &nbsp;<a href="https://aqipollution.vercel.app/" target="blank">Pollution</a>
+    </div>
+    <div class="sidebar-list">
+      <i class="fas fa-th-list"></i>
+      &nbsp;<a href="https://wokwi-smart-farming.vercel.app/" target="blank">Wokwi</a>
+    </div>
+  </div>
+
+  <main>
+
+    <div class="case">
+      <div class="card">
+        <b>Hello World</b><hr>
+        <div class="card-body">
+          Hello World
+        </div>
+        <hr>                
+        <button onclick="summarizeText()">Submit</button>                
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="card">
+        <b>Hello World</b><hr>
+        <div class="card-body">
+          Hello World
+        </div>
+        <hr>                
+        <button onclick="summarizeText()">Submit</button>                
+      </div>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
