@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dropdown CSS Only</title>
+  <style>
+    * {
+      /* universal */
+      font-family: 'Calibri';
+    }
+
+    /* Toggle control */
+    #dropdown-toggle {
+      display: none;
+    }
+
+    .dropdown-label {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .dropdown-content {
+      margin-top: 5px;
+      display: none;
+      background-color: ;
+      padding: 0px 20px 0px 20px;
+      border-radius: 5px;
+      position: absolute;
+      z-index: 10;
+    }
+
+    #dropdown-toggle:checked + .dropdown-label + .dropdown-content {
+      display: block;
+    }
+
+    /* Tambahan biar ga tumpang tindih */
+    .dropdown-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dropdown-wrapper">
+    <input type="checkbox" id="dropdown-toggle" />
+    <label for="dropdown-toggle" class="dropdown-label">Dropdown Menu</label>
+    <div class="dropdown-content">
+      <p><a href="#">Menu 1</a></p>
+      <p><a href="#">Menu 2</a></p>
+      <p><a href="#">Menu 3</a></p>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Light Dark Mode</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Calibri, sans-serif;
+      transition: 0.3s;
+    }
+
+    .card {
+      margin: 2em;
+      padding: 2em;
+      border-radius: 8px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #121212;
+        color: #eee;
+      }
+
+      .card {
+        background: #1e1e1e;
+        color: white;
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      body {
+        background: #fefefe;
+        color: #111;
+      }
+
+      .card {
+        background: #fff;
+        color: #000;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Halo Dunia</h1>
+    <p>Mode ini mengikuti sistem otomatis (dark/light)</p>
+  </div>
+</body>
+</html>

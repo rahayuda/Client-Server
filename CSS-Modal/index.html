@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Modal CSS Only</title>
+  <style>
+    * {
+      /* universal */
+      font-family: 'Calibri';
+    }
+    #modal-toggle {
+      display: none;
+    }
+
+    .open-btn {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 5px;
+      width: 300px;
+      text-align: center;
+    }
+
+    #modal-toggle:checked + .modal {
+      display: flex;
+    }
+
+    .close-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 5px 10px;
+      background: #dc3545;
+      color: white;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    .center {
+      display: flex;
+      justify-content: center;  
+      align-items: center;  
+      height: 100vh; 
+    }
+  </style>
+</head>
+<body>
+  <div class="center">
+    <label for="modal-toggle" class="open-btn">Modal</label>
+  </div>
+  <input type="checkbox" id="modal-toggle" />
+
+  <div class="modal">
+    <div class="modal-content">
+      <h2>Halo!</h2>
+      <p>Ini modal tanpa JavaScript</p>
+      <label for="modal-toggle" class="close-btn">close</label>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sidebar</title>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+  />
+  <style>
+    * {
+      /* universal */
+      font-family: 'Calibri';
+    }
+
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    main {
+      min-height: 630px;
+      padding: 20px;
+      margin-left: 50px;
+    }
+
+    hr {
+      margin: 15px 0px 15px 0px;
+    }
+
+    h1, h2, h3, h4, h5 {
+      margin: 10px 0px 10px 0px;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    .menu-icon {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      font-size: 14px;
+      background: #333;
+      color: white;
+      padding: 5px 10px 5px 10px;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 250px;
+      height: 100%;
+      background: #444;
+      color: white;
+      padding: 30px 20px 5px 20px;
+      transition: left 0.3s ease;
+      z-index: 1;
+    }
+
+    #menu-toggle:checked + .sidebar {
+      left: 0;
+    }
+
+    #menu-toggle:checked ~ .menu-icon::before {
+      content: "✖"; 
+    }
+
+    .menu-icon::before {
+      content: "☰"; 
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Checkbox kontrol -->
+  <input type="checkbox" id="menu-toggle" />
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Menu</h2>
+    <hr>
+    <h4><i class="fas fa-th-list"></i>&nbsp;Home</h4>
+    <h4><i class="fas fa-th-list"></i>&nbsp;Profil</h4>
+  </div>
+
+  <!-- Tombol toggle -->
+  <label class="menu-icon" for="menu-toggle"></label>
+
+  <main>
+    <h1>Halaman Utama</h1>
+    <p>Konten utama di sini...</p>
+  </main>
+
+</body>
+</html>
