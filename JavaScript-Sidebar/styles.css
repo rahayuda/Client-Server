@@ -129,8 +129,8 @@ a:hover {
 
 button {
   padding: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 3px;
   border: 1px solid #0F1035;
   background-color: #0F1035;
