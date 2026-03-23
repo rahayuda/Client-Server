@@ -1,32 +1,110 @@
-<div id="repo-list">Memuat daftar folder...</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Client Server</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="....">
+    <meta name="keywords" content="Udayana, MIPA, Informatika, HTML, CSS, JavaScript, PHP, Python, Node, MySQL, Postgre, SQLite, Firebase">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="I Gede Surya Rahayuda">
+    <meta name="google-site-verification" content="P4tQqiPLw90HsYnebkaja0SFyi01pKRYD_VwnCmTX5Q" />
 
-<script>
-    const username = 'rahayuda';
-    const repo = 'Client-Server';
-    const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/`;
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.png" type="image/png">
 
-    async function getFolders() {
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://rahayuda.github.io/Client-Server">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MJDSGM65');</script>
+  <!-- End Google Tag Manager -->
+  <link rel="stylesheet" href="style.css">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+  />
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJDSGM65"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <header>
+      <div class="head">Client Server</div>
+    </header>
+
+    <main>
+      <div class="left">
+        <div class="card">
+          <b><i class="fas fa-th-list"></i>&nbsp; Daftar Proyek</b>
+          <hr>
+          <div id="repo-list">Memuat daftar folder...</div>
+          <br>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const username = 'rahayuda';
+      const repo = 'Client-Server';
+      const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/`;
+
+      async function getFolders() {
         try {
-            const response = await fetch(apiUrl);
-            const data = await response.json();
-            const listElement = document.getElementById('repo-list');
-            listElement.innerHTML = ''; // Bersihkan teks memuat
+          const response = await fetch(apiUrl);
+          const data = await response.json();
+          const listElement = document.getElementById('repo-list');
 
-            const ul = document.createElement('ul');
-            data.forEach(item => {
-                // Hanya tampilkan yang berupa folder (dir)
-                if (item.type === 'dir') {
-                    const li = document.createElement('li');
-                    li.innerHTML = `<a href="${item.name}/index.html" target="_blank" rel="noopener noreferrer">${item.name.replace(/-/g, ' ')}</a>`;
-                    ul.appendChild(li);
-                }
-            });
-            listElement.appendChild(ul);
-        } catch (error) {
-            console.error('Gagal mengambil data:', error);
-            document.getElementById('repo-list').innerText = 'Gagal memuat daftar folder.';
+          if (response.status === 403) {
+            listElement.innerText = 'Limit API tercapai, coba lagi nanti.';
+            return;
+          }
+
+        listElement.innerHTML = ''; // Bersihkan teks memuat
+
+        // Membuat container list (ul)
+        const ul = document.createElement('ul');
+        
+        data.forEach(item => {
+          // Hanya ambil item dengan tipe 'dir' (folder)
+          if (item.type === 'dir') {
+            const li = document.createElement('li');
+            
+            // Menggabungkan ikon folder dan link
+            li.innerHTML = `
+            <a href="${item.name}/index.html" target="_blank" rel="noopener noreferrer">
+            ${item.name.replace(/-/g, ' ')}
+            </a>
+            `;
+            ul.appendChild(li);
+          }
+        });
+        
+        // Cek jika tidak ada folder sama sekali
+        if (ul.childElementCount === 0) {
+          listElement.innerText = 'Tidak ada folder ditemukan.';
+        } else {
+          listElement.appendChild(ul);
         }
+
+      } catch (error) {
+        console.error('Gagal mengambil data:', error);
+        document.getElementById('repo-list').innerText = 'Gagal memuat daftar folder.';
+      }
     }
 
     getFolders();
-</script>
+  </script>
+</body>
+</html>
