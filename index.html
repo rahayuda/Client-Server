@@ -17,7 +17,7 @@
                 // Hanya tampilkan yang berupa folder (dir)
                 if (item.type === 'dir') {
                     const li = document.createElement('li');
-                    li.innerHTML = `<a href="${item.name}/index.html">${item.name.replace(/-/g, ' ')}</a>`;
+                    li.innerHTML = `<a href="${item.name}/index.html" target="_blank" rel="noopener noreferrer">${item.name.replace(/-/g, ' ')}</a>`;
                     ul.appendChild(li);
                 }
             });
