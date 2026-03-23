@@ -1,1 +1,32 @@
+<div id="repo-list">Memuat daftar folder...</div>
 
+<script>
+    const username = 'rahayuda';
+    const repo = 'Client-Server';
+    const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/`;
+
+    async function getFolders() {
+        try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            const listElement = document.getElementById('repo-list');
+            listElement.innerHTML = ''; // Bersihkan teks memuat
+
+            const ul = document.createElement('ul');
+            data.forEach(item => {
+                // Hanya tampilkan yang berupa folder (dir)
+                if (item.type === 'dir') {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="${item.name}/index.html">${item.name.replace(/-/g, ' ')}</a>`;
+                    ul.appendChild(li);
+                }
+            });
+            listElement.appendChild(ul);
+        } catch (error) {
+            console.error('Gagal mengambil data:', error);
+            document.getElementById('repo-list').innerText = 'Gagal memuat daftar folder.';
+        }
+    }
+
+    getFolders();
+</script>
