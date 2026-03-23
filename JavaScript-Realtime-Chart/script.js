@@ -4,7 +4,7 @@ import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10
 const firebaseConfig = {
 	apiKey: "-",
 	authDomain: "sensoremulator.firebaseapp.com",
-	databaseURL: "-",
+	databaseURL: "https://sensoremulator-default-rtdb.firebaseio.com",
 	projectId: "sensoremulator",
 	storageBucket: "sensoremulator.appspot.com",
 	messagingSenderId: "-",
