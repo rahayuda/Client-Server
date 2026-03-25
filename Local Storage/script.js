@@ -104,7 +104,7 @@ function updateChart() {
   chartElement.innerHTML = '';
   cart.forEach(item => {
     const itemElement = document.createElement('div');
-    itemElement.innerHTML = `<li> ${item.productName}, ${item.quantity}, ${item.price.toLocaleString()}, <span class="delete" data-id="${item.id}"><i class="fas fa-times"></i></span>`;
+    itemElement.innerHTML = `${item.productName}, ${item.quantity}, ${item.price.toLocaleString()}, <span class="delete" data-id="${item.id}"><i class="fas fa-times"></i></span>`;
     chartElement.appendChild(itemElement);
   });
 
@@ -118,7 +118,7 @@ function updateChart() {
 
 // Menampilkan total harga keseluruhan
 const totalElement = document.getElementById('total');
-totalElement.innerHTML = `<i class="fas fa-list"></i> Total: Rp. ${totalPrice.toLocaleString()}`;
+totalElement.innerHTML = `Total: Rp. ${totalPrice.toLocaleString()}`;
 }
 
 // Memanggil fungsi updateChart saat halaman dimuat
