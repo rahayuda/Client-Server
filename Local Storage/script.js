@@ -104,7 +104,7 @@ function updateChart() {
   chartElement.innerHTML = '';
   cart.forEach(item => {
     const itemElement = document.createElement('div');
-    itemElement.innerHTML = `<i class="fas fa-list"></i> ${item.productName}, ${item.quantity}, ${item.price.toLocaleString()}, <span class="delete" data-id="${item.id}"><i class="fas fa-times"></i></span>`;
+    itemElement.innerHTML = `<li> ${item.productName}, ${item.quantity}, ${item.price.toLocaleString()}, <span class="delete" data-id="${item.id}"><i class="fas fa-times"></i></span>`;
     chartElement.appendChild(itemElement);
   });
 
